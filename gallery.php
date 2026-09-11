@@ -19,7 +19,7 @@ $pageTitle = $entry['name'] . ' — Photography';
 $activeType = $type;
 require __DIR__ . '/inc/header.php';
 ?>
-<section class="gallery-header">
+<section class="gallery-header reveal">
   <a class="back-link" href="/#<?= htmlspecialchars($type) ?>">&larr; Back</a>
   <h1><?= htmlspecialchars($entry['name']) ?></h1>
   <?php if ($entry['bio']): ?><p class="bio"><?= htmlspecialchars($entry['bio']) ?></p><?php endif; ?>
@@ -27,8 +27,9 @@ require __DIR__ . '/inc/header.php';
 
 <section class="gallery-grid">
   <?php foreach ($entry['images'] as $i => $file): ?>
-  <figure class="gallery-item">
+  <figure class="gallery-item reveal">
     <a href="<?= content_url($type, $slug, $file) ?>" data-lightbox data-index="<?= $i ?>">
+      <span class="index"><?= sprintf('%02d', $i + 1) ?> / <?= sprintf('%02d', count($entry['images'])) ?></span>
       <img src="<?= thumb_url($type, $slug, $file, 900) ?>"
            alt="<?= htmlspecialchars($entry['captions'][$file] ?? $entry['name']) ?>" loading="lazy">
       <?php if (!empty($entry['captions'][$file])): ?>

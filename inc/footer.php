@@ -1,6 +1,7 @@
 </main>
 <footer class="site-footer">
-  <p>&copy; <?= date('Y') ?> Photography. All rights reserved.</p>
+  <span>&copy; <?= date('Y') ?> Photography. All rights reserved.</span>
+  <span>Based in Berlin &mdash; available worldwide</span>
 </footer>
 <script src="/assets/js/main.js"></script>
 </body>
