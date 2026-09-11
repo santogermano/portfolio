@@ -1,0 +1,27 @@
+DirectoryIndex index.php index.html
+
+RewriteEngine On
+
+# /people/<slug>/  ->  gallery.php?type=people&slug=<slug>
+RewriteRule ^people/([^/]+)/?$ gallery.php?type=people&slug=$1 [L,QSA]
+
+# /events/<slug>/  ->  gallery.php?type=events&slug=<slug>
+RewriteRule ^events/([^/]+)/?$ gallery.php?type=events&slug=$1 [L,QSA]
+
+# Never allow browsing the thumbnail cache or raw content directories directly
+<IfModule mod_headers.c>
+  <FilesMatch "meta\.json$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+
+Options -Indexes
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
