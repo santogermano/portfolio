@@ -38,6 +38,9 @@ function render_section(string $type, string $label, array $entries): void
           </a>
           <?php endif; ?>
         <?php endforeach; ?>
+        <?php foreach ($entries as $i => $entry): ?>
+        <span class="visual-caption<?= $i === 0 ? ' is-active' : '' ?>" data-index="<?= $i ?>"><?= htmlspecialchars($entry['name']) ?></span>
+        <?php endforeach; ?>
       </div>
     </section>
     <?php
@@ -45,8 +48,9 @@ function render_section(string $type, string $label, array $entries): void
 
 require __DIR__ . '/inc/header.php';
 ?>
-<section class="hero">
-  <h1>A visual archive of people and moments.</h1>
+<section class="hero reveal">
+  <span class="hero-eyebrow">Photography Studio</span>
+  <h1>A visual archive<br>of <em>people</em> &amp; moments.</h1>
 </section>
 
 <?php
