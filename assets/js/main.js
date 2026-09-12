@@ -55,13 +55,11 @@
   document.querySelectorAll('.split-section').forEach(function (section) {
     var links = section.querySelectorAll('.name-link');
     var images = section.querySelectorAll('.visual-image');
-    var captions = section.querySelectorAll('.visual-caption');
     var visual = section.querySelector('.split-visual');
 
     function activate(index) {
       links.forEach(function (l) { l.classList.toggle('is-active', l.dataset.index === String(index)); });
       images.forEach(function (img) { img.classList.toggle('is-active', img.dataset.index === String(index)); });
-      captions.forEach(function (c) { c.classList.toggle('is-active', c.dataset.index === String(index)); });
     }
 
     links.forEach(function (link) {

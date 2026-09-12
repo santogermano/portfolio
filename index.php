@@ -35,11 +35,9 @@ function render_section(string $type, string $label, array $entries): void
              data-index="<?= $i ?>">
             <img src="<?= thumb_url($type, $entry['slug'], $entry['cover'], 1400) ?>"
                  alt="<?= htmlspecialchars($entry['name']) ?>" loading="<?= $i === 0 ? 'eager' : 'lazy' ?>">
+            <span class="visual-caption"><?= htmlspecialchars($entry['name']) ?></span>
           </a>
           <?php endif; ?>
-        <?php endforeach; ?>
-        <?php foreach ($entries as $i => $entry): ?>
-        <span class="visual-caption<?= $i === 0 ? ' is-active' : '' ?>" data-index="<?= $i ?>"><?= htmlspecialchars($entry['name']) ?></span>
         <?php endforeach; ?>
       </div>
     </section>

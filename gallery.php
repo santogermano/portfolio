@@ -32,6 +32,7 @@ require __DIR__ . '/inc/header.php';
       <span class="index"><?= sprintf('%02d', $i + 1) ?> / <?= sprintf('%02d', count($entry['images'])) ?></span>
       <img src="<?= thumb_url($type, $slug, $file, 900) ?>"
            alt="<?= htmlspecialchars($entry['captions'][$file] ?? $entry['name']) ?>" loading="lazy">
+      <span class="hover-name"><?= htmlspecialchars($entry['name']) ?></span>
       <?php if (!empty($entry['captions'][$file])): ?>
       <figcaption><?= htmlspecialchars($entry['captions'][$file]) ?></figcaption>
       <?php endif; ?>
